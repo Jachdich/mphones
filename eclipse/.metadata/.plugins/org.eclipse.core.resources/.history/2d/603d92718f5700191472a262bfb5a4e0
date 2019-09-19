@@ -1,0 +1,5 @@
+package com.kingjellyfishii.hivemcstats;
+
+public class CommandToggle {
+
+}
