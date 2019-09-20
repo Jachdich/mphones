@@ -1,10 +1,10 @@
-package net.mcreator.mphones;
+package com.cospox.mphones;
 
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.client.model.obj.OBJLoader;
 
-public class ClientProxymphones extends CommonProxymphones {
+public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void init(FMLInitializationEvent event) {

@@ -15,12 +15,12 @@ import net.minecraft.client.gui.GuiButton;
 
 import java.util.HashMap;
 
-public class MCreatorMPhonesGUI extends mphones.ModElement {
+public class MPhonesGUI extends MPhones.ModElement {
 
 	public static int GUIID = 1;
 	public static HashMap guiinventory = new HashMap();
 
-	public MCreatorMPhonesGUI(mphones instance) {
+	public MPhonesGUI(MPhones instance) {
 		super(instance);
 	}
 
@@ -146,7 +146,7 @@ public class MCreatorMPhonesGUI extends mphones.ModElement {
 					$_dependencies.put("y", y);
 					$_dependencies.put("z", z);
 					$_dependencies.put("world", world);
-					MCreatorPhone.executeProcedure($_dependencies);
+					Phone.executeProcedure($_dependencies);
 				}
 			}
 		}

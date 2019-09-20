@@ -21,12 +21,12 @@ import net.minecraft.block.state.IBlockState;
 
 import java.util.HashMap;
 
-public class MCreatorMPhones extends mphones.ModElement {
+public class MPhone extends MPhones.ModElement {
 
 	@GameRegistry.ObjectHolder("mphones:mphones")
 	public static final Item block = null;
 
-	public MCreatorMPhones(mphones instance) {
+	public MPhone(MPhones instance) {
 		super(instance);
 		instance.items.add(() -> new ItemCustom());
 	}
@@ -76,7 +76,7 @@ public class MCreatorMPhones extends mphones.ModElement {
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
 				$_dependencies.put("world", world);
-				MCreatorMPhoneGUI.executeProcedure($_dependencies);
+				MPhoneGUI.executeProcedure($_dependencies);
 			}
 			return ar;
 		}
@@ -95,7 +95,7 @@ public class MCreatorMPhones extends mphones.ModElement {
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
 				$_dependencies.put("world", world);
-				MCreatorMPhoneGUI.executeProcedure($_dependencies);
+				MPhoneGUI.executeProcedure($_dependencies);
 			}
 			return EnumActionResult.PASS;
 		}

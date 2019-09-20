@@ -11,9 +11,9 @@ import net.minecraft.entity.Entity;
 
 import java.util.HashMap;
 
-public class MCreatorMPhoneGUI extends mphones.ModElement {
+public class MPhoneGUI extends MPhones.ModElement {
 
-	public MCreatorMPhoneGUI(mphones instance) {
+	public MPhoneGUI(MPhones instance) {
 		super(instance);
 	}
 
@@ -44,7 +44,7 @@ public class MCreatorMPhoneGUI extends mphones.ModElement {
 		int z = (int) dependencies.get("z");
 		World world = (World) dependencies.get("world");
 		if (entity instanceof EntityPlayer)
-			((EntityPlayer) entity).openGui(instance, MCreatorMPhonesGUI.GUIID, world, x, y, z);
+			((EntityPlayer) entity).openGui(instance, MPhonesGUI.GUIID, world, x, y, z);
 	}
 
 	@SubscribeEvent

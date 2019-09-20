@@ -12,9 +12,9 @@ import net.minecraft.command.ICommandSender;
 
 import java.util.HashMap;
 
-public class MCreatorPhone extends mphones.ModElement {
+public class Phone extends MPhones.ModElement {
 
-	public MCreatorPhone(mphones instance) {
+	public Phone(MPhones instance) {
 		super(instance);
 	}
 
@@ -45,7 +45,7 @@ public class MCreatorPhone extends mphones.ModElement {
 		int z = (int) dependencies.get("z");
 		World world = (World) dependencies.get("world");
 		if (entity instanceof EntityPlayer)
-			((EntityPlayer) entity).openGui(instance, MCreatorPhoneAPP.GUIID, world, x, y, z);
+			((EntityPlayer) entity).openGui(instance, PhoneAPP.GUIID, world, x, y, z);
 	}
 
 	@SubscribeEvent

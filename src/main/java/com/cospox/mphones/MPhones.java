@@ -36,15 +36,15 @@ import java.util.Random;
 import java.util.List;
 import java.util.ArrayList;
 
-@Mod(modid = mphones.MODID, version = mphones.VERSION)
-public class mphones implements IFuelHandler, IWorldGenerator {
+@Mod(modid = MPhones.MODID, version = MPhones.VERSION)
+public class MPhones implements IWorldGenerator {
 
 	public static final String MODID = "mphones";
 	public static final String VERSION = "1.0.0";
 	@SidedProxy(clientSide = "com.cospox.mphones.ClientProxymphones", serverSide = "com.cospox.mphones.CommonProxymphones")
-	public static CommonProxymphones proxy;
+	public static CommonProxy proxy;
 	@Instance(MODID)
-	public static mphones instance;
+	public static MPhones instance;
 	public final List<ModElement> elements = new ArrayList<>();
 	public final List<Supplier<Block>> blocks = new ArrayList<>();
 	public final List<Supplier<Item>> items = new ArrayList<>();
@@ -52,25 +52,25 @@ public class mphones implements IFuelHandler, IWorldGenerator {
 	public final List<Supplier<EntityEntry>> entities = new ArrayList<>();
 	public final List<Supplier<Potion>> potions = new ArrayList<>();
 
-	public mphones() {
+	public MPhones() {
 		FluidRegistry.enableUniversalBucket();
-		elements.add(new MCreatorMPhonesGUI(this));
-		elements.add(new MCreatorMPhones(this));
-		elements.add(new MCreatorMPhoneRecipe(this));
-		elements.add(new MCreatorMPhoneGUI(this));
-		elements.add(new MCreatorPhoneAPP(this));
-		elements.add(new MCreatorPhone(this));
+		elements.add(new MPhonesGUI(this));
+		elements.add(new MPhone(this));
+		elements.add(new MPhoneRecipe(this));
+		elements.add(new MPhoneGUI(this));
+		elements.add(new PhoneAPP(this));
+		elements.add(new Phone(this));
 	}
 
-	@Override
-	public int getBurnTime(ItemStack fuel) {
-		for (ModElement element : elements) {
-			int ret = element.addFuel(fuel);
-			if (ret != 0)
-				return ret;
-		}
-		return 0;
-	}
+	//@Override
+	//public int getBurnTime(ItemStack fuel) {
+	//	for (ModElement element : elements) {
+	//		int ret = element.addFuel(fuel);
+//			if (ret != 0)
+	//			return ret;
+	//	}
+	//	return 0;
+	//}
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator cg, IChunkProvider cp) {
@@ -115,7 +115,7 @@ public class mphones implements IFuelHandler, IWorldGenerator {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		MinecraftForge.EVENT_BUS.register(this);
-		GameRegistry.registerFuelHandler(this);
+		//GameRegistry.registerFuelHandler(this);
 		GameRegistry.registerWorldGenerator(this, 5);
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 		elements.forEach(element -> element.preInit(event));
@@ -137,28 +137,28 @@ public class mphones implements IFuelHandler, IWorldGenerator {
 
 		@Override
 		public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
-			if (id == MCreatorMPhonesGUI.GUIID)
-				return new MCreatorMPhonesGUI.GuiContainerMod(world, x, y, z, player);
-			if (id == MCreatorPhoneAPP.GUIID)
-				return new MCreatorPhoneAPP.GuiContainerMod(world, x, y, z, player);
+			if (id == MPhonesGUI.GUIID)
+				return new MPhonesGUI.GuiContainerMod(world, x, y, z, player);
+			if (id == PhoneAPP.GUIID)
+				return new PhoneAPP.GuiContainerMod(world, x, y, z, player);
 			return null;
 		}
 
 		@Override
 		public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
-			if (id == MCreatorMPhonesGUI.GUIID)
-				return new MCreatorMPhonesGUI.GuiWindow(world, x, y, z, player);
-			if (id == MCreatorPhoneAPP.GUIID)
-				return new MCreatorPhoneAPP.GuiWindow(world, x, y, z, player);
+			if (id == MPhonesGUI.GUIID)
+				return new MPhonesGUI.GuiWindow(world, x, y, z, player);
+			if (id == PhoneAPP.GUIID)
+				return new PhoneAPP.GuiWindow(world, x, y, z, player);
 			return null;
 		}
 	}
 
 	public static class ModElement {
 
-		public static mphones instance;
+		public static MPhones instance;
 
-		public ModElement(mphones instance) {
+		public ModElement(MPhones instance) {
 			this.instance = instance;
 		}
 

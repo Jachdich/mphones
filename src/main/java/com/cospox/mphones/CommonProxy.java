@@ -3,7 +3,7 @@ package com.cospox.mphones;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 
-public class CommonProxymphones {
+public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
 	}
