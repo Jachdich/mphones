@@ -19,7 +19,6 @@ import java.util.HashMap;
 public class PhoneAPP extends MPhones.ModElement {
 
 	public static int GUIID = 2;
-	public static HashMap guiinventory = new HashMap();
 
 	public PhoneAPP(MPhones instance) {
 		super(instance);
@@ -129,8 +128,7 @@ public class PhoneAPP extends MPhones.ModElement {
 			this.guiTop = (this.height - 175) / 2;
 			Keyboard.enableRepeatEvents(true);
 			this.buttonList.clear();
-			Number = new GuiTextField(0, this.fontRenderer, 3, 34, 120, 20);
-			guiinventory.put("text:Number", Number);
+			this.Number = new GuiTextField(0, this.fontRenderer, 3, 34, 120, 20);
 			Number.setMaxStringLength(32767);
 			Number.setText("+0");
 			this.buttonList.add(new GuiButton(0, this.guiLeft + 55, this.guiTop + 143, 12, 20, "0"));
@@ -151,30 +149,7 @@ public class PhoneAPP extends MPhones.ModElement {
 		protected void actionPerformed(GuiButton button) {
 			MinecraftServer server = FMLCommonHandler.instance().getMinecraftServerInstance();
 			World world = server.getWorld(entity.dimension);
-			if (button.id == 0) {
-			}
-			if (button.id == 1) {
-			}
-			if (button.id == 2) {
-			}
-			if (button.id == 3) {
-			}
-			if (button.id == 4) {
-			}
-			if (button.id == 5) {
-			}
-			if (button.id == 6) {
-			}
-			if (button.id == 7) {
-			}
-			if (button.id == 8) {
-			}
-			if (button.id == 9) {
-			}
-			if (button.id == 10) {
-			}
-			if (button.id == 11) {
-			}
+			this.Number.setText(this.Number.getText() + Integer.toString(button.id));
 		}
 
 		@Override

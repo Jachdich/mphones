@@ -41,7 +41,7 @@ public class MPhones implements IWorldGenerator {
 
 	public static final String MODID = "mphones";
 	public static final String VERSION = "1.0.0";
-	@SidedProxy(clientSide = "com.cospox.mphones.ClientProxymphones", serverSide = "com.cospox.mphones.CommonProxymphones")
+	@SidedProxy(clientSide = "com.cospox.mphones.ClientProxy", serverSide = "com.cospox.mphones.CommonProxy")
 	public static CommonProxy proxy;
 	@Instance(MODID)
 	public static MPhones instance;
