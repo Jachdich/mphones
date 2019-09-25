@@ -1,8 +1,8 @@
 package com.cospox.mphones;
 
-public class MPhoneRecipe extends MPhones.ModElement {
+public class MPhoneRecipe extends ModElement {
 
-	public MPhoneRecipe(MPhones instance) {
+	public MPhoneRecipe(Main instance) {
 		super(instance);
 	}
 }

@@ -12,9 +12,9 @@ import net.minecraft.command.ICommandSender;
 
 import java.util.HashMap;
 
-public class Phone extends MPhones.ModElement {
+public class Phone extends ModElement {
 
-	public Phone(MPhones instance) {
+	public Phone(Main instance) {
 		super(instance);
 	}
 

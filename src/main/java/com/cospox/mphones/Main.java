@@ -36,23 +36,22 @@ import java.util.Random;
 import java.util.List;
 import java.util.ArrayList;
 
-@Mod(modid = MPhones.MODID, version = MPhones.VERSION)
-public class MPhones implements IWorldGenerator {
+@Mod(modid = Main.MODID, version = Main.VERSION)
+public class Main implements IWorldGenerator {
 
 	public static final String MODID = "mphones";
 	public static final String VERSION = "1.0.0";
 	@SidedProxy(clientSide = "com.cospox.mphones.ClientProxy", serverSide = "com.cospox.mphones.CommonProxy")
 	public static CommonProxy proxy;
 	@Instance(MODID)
-	public static MPhones instance;
+	public static Main instance;
 	public final List<ModElement> elements = new ArrayList<>();
 	public final List<Supplier<Block>> blocks = new ArrayList<>();
 	public final List<Supplier<Item>> items = new ArrayList<>();
 	public final List<Supplier<Biome>> biomes = new ArrayList<>();
 	public final List<Supplier<EntityEntry>> entities = new ArrayList<>();
-	public final List<Supplier<Potion>> potions = new ArrayList<>();
 
-	public MPhones() {
+	public Main() {
 		FluidRegistry.enableUniversalBucket();
 		elements.add(new MPhonesGUI(this));
 		elements.add(new MPhone(this));
@@ -61,16 +60,6 @@ public class MPhones implements IWorldGenerator {
 		elements.add(new PhoneAPP(this));
 		elements.add(new Phone(this));
 	}
-
-	//@Override
-	//public int getBurnTime(ItemStack fuel) {
-	//	for (ModElement element : elements) {
-	//		int ret = element.addFuel(fuel);
-//			if (ret != 0)
-	//			return ret;
-	//	}
-	//	return 0;
-	//}
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator cg, IChunkProvider cp) {
@@ -95,11 +84,6 @@ public class MPhones implements IWorldGenerator {
 	@SubscribeEvent
 	public void registerEntities(RegistryEvent.Register<EntityEntry> event) {
 		event.getRegistry().registerAll(entities.stream().map(Supplier::get).toArray(EntityEntry[]::new));
-	}
-
-	@SubscribeEvent
-	public void registerPotions(RegistryEvent.Register<Potion> event) {
-		event.getRegistry().registerAll(potions.stream().map(Supplier::get).toArray(Potion[]::new));
 	}
 
 	@SubscribeEvent
@@ -151,34 +135,6 @@ public class MPhones implements IWorldGenerator {
 			if (id == PhoneAPP.GUIID)
 				return new PhoneAPP.GuiWindow(world, x, y, z, player);
 			return null;
-		}
-	}
-
-	public static class ModElement {
-
-		public static MPhones instance;
-
-		public ModElement(MPhones instance) {
-			this.instance = instance;
-		}
-
-		public void init(FMLInitializationEvent event) {
-		}
-
-		public void preInit(FMLPreInitializationEvent event) {
-		}
-
-		public void generateWorld(Random random, int posX, int posZ, World world, int dimID, IChunkGenerator cg, IChunkProvider cp) {
-		}
-
-		public void serverLoad(FMLServerStartingEvent event) {
-		}
-
-		public void registerModels(ModelRegistryEvent event) {
-		}
-
-		public int addFuel(ItemStack fuel) {
-			return 0;
 		}
 	}
 }

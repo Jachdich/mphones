@@ -21,12 +21,12 @@ import net.minecraft.block.state.IBlockState;
 
 import java.util.HashMap;
 
-public class MPhone extends MPhones.ModElement {
+public class MPhone extends ModElement {
 
 	@GameRegistry.ObjectHolder("mphones:mphones")
 	public static final Item block = null;
 
-	public MPhone(MPhones instance) {
+	public MPhone(Main instance) {
 		super(instance);
 		instance.items.add(() -> new ItemCustom());
 	}

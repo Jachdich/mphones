@@ -15,12 +15,12 @@ import net.minecraft.client.gui.GuiButton;
 
 import java.util.HashMap;
 
-public class MPhonesGUI extends MPhones.ModElement {
+public class MPhonesGUI extends ModElement {
 
 	public static int GUIID = 1;
 	public static HashMap guiinventory = new HashMap();
 
-	public MPhonesGUI(MPhones instance) {
+	public MPhonesGUI(Main instance) {
 		super(instance);
 	}
 

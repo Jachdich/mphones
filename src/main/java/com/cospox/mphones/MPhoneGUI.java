@@ -11,9 +11,9 @@ import net.minecraft.entity.Entity;
 
 import java.util.HashMap;
 
-public class MPhoneGUI extends MPhones.ModElement {
+public class MPhoneGUI extends ModElement {
 
-	public MPhoneGUI(MPhones instance) {
+	public MPhoneGUI(Main instance) {
 		super(instance);
 	}
 

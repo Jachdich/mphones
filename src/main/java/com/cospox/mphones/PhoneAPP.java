@@ -16,11 +16,11 @@ import net.minecraft.client.gui.GuiButton;
 
 import java.util.HashMap;
 
-public class PhoneAPP extends MPhones.ModElement {
+public class PhoneAPP extends ModElement {
 
 	public static int GUIID = 2;
 
-	public PhoneAPP(MPhones instance) {
+	public PhoneAPP(Main instance) {
 		super(instance);
 	}
 
